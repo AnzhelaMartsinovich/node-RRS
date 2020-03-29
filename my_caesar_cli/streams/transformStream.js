@@ -1,16 +1,12 @@
 // https://devhints.io/nodejs-stream
 const Transform = require('stream').Transform;
-const encode = require('./../helpers/encode');
-const decode = require('./../helpers/decode');
+const action = require('./../helpers/action');
 
-module.exports = function transformStream(action, shift) {
-  /* eslint no-unused-expressions: ["error", { "allowTernary": true }]*/
-  action === 'encode' ? (action = encode) : (action = decode);
-
+module.exports = function transformStream(actionType, shift) {
   return new Transform({
     objectMode: true,
     transform(data, _, done) {
-      this.push(action(data.toString('utf-8'), shift));
+      this.push(action(data.toString('utf-8'), shift, actionType));
       done();
     }
   });
