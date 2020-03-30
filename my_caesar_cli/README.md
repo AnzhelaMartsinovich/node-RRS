@@ -1,9 +1,6 @@
-Доброго времени суток! Я еще не разобралась/не сделала все что хотела, поэтому решила влезть в штрафные дни (баллы затем отниму и напишу о этом в README).
-[Документация](https://docs.rs.school/#/stage2?id=%d0%94%d0%b5%d0%b4%d0%bb%d0%b0%d0%b9%d0%bd%d1%8b)
+[Контакт для связи ](https://t.me/Anzhela_Mart)
 
 ---
-
-Проверьте, пожалуйста, работу после 1-го апреля. Надеюсь, это не доставит вам больших неудобств. [Контакт для связи ](https://t.me/Anzhela_Mart)
 
 # Task 1. Caesar cipher CLI tool
 
@@ -38,12 +35,12 @@ First install all the dependencies:
 npm install
 ```
 
-then run
+then go to the "my_caesar_cli" folder and enter
 
 ```
-$ node my_caesar_cli -a encode -s 7 -i "./input.txt" -o "./output.txt"
-$ node my_caesar_cli --action encode --shift 7 --input plain.txt --output encoded.txt
-$ node my_caesar_cli --action decode --shift 7 --input decoded.txt --output plain.txt
+$ node index.js -a encode -s 7 -i input.txt -o output.txt
+$ node index.js --action encode --shift 7 --input input.txt --output output.txt
+$ node index.js --action decode --shift 7 --input input.txt --output output.txt
 ```
 
 ---

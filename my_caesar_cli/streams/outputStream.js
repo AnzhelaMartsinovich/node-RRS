@@ -1,21 +1,24 @@
 const fs = require('fs');
+const exitCode = require('./../helpers/exitCode');
 
 function outputStream(path) {
   // eslint-disable-next-line no-sync
   const existsSyncPath = fs.existsSync(path);
+  if (path === undefined) {
+    path = 'undefined';
+  }
+  const truePath = path.substr(path.length - 4);
 
-  if (existsSyncPath) {
+  if (existsSyncPath && truePath === '.txt') {
     return fs.createWriteStream(`./${path}`, {
       flags: 'a'
     });
-  } else if (!existsSyncPath) {
+  } else if (!existsSyncPath && truePath === '.txt') {
+    process.stderr.write('Output file/path was not found, try again \n');
+    exitCode();
+  } else {
     return process.stdout;
   }
-
-  process.stderr.write('Output file/path was not found, try again \n');
-  process.on('exit', code => console.log(`Process code: ${code}`));
-  const exit = process.exit;
-  exit(1);
 }
 
 module.exports = outputStream;

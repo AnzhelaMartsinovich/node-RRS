@@ -1,5 +1,5 @@
 // https://www.youtube.com/watch?v=RfnH-vFseTY
-const getAction = (str, shift, action) => {
+const caesarCipher = (str, shift, action) => {
   let out = '';
   for (let i = 0; i < str.length; i++) {
     let code = str.charCodeAt(i);
@@ -12,4 +12,4 @@ const getAction = (str, shift, action) => {
   return out;
 };
 
-module.exports = getAction;
+module.exports = caesarCipher;

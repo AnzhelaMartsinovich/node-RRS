@@ -4,7 +4,7 @@ const { pipeline } = require('stream');
 const input_stream = require('./streams/inputStream');
 const transform_stream = require('./streams/transformStream');
 const output_stream = require('./streams/outputStream');
-const shiftAction = require('./helpers/shiftAction');
+const shiftAction = require('./helpers/args');
 
 program
   .option('-s, --shift <number>', 'a shift')
@@ -15,7 +15,6 @@ program
   .parse(process.argv);
 
 const programOptions = program.opts();
-console.log(programOptions);
 shiftAction(programOptions);
 
 pipeline(
